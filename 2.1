@@ -1,0 +1,13 @@
+#Задание 1
+num = input("Введите числа через пробел: ").split()
+s = int(input("Введите степень: "))
+result = []
+
+for element in num:
+    if element.lstrip('-').isdigit():
+        num = int(element)
+        result.append(str(num ** s))
+    else:
+        result.append(element * s)
+
+print("Вывод:", " ".join(result))
