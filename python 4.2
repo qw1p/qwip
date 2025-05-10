@@ -1,0 +1,17 @@
+import math
+
+def a():
+    num = 2
+    while True:
+        a = True
+        for i in range(2, int(math.sqrt(num)) + 1):
+            if num % i == 0:
+                a = False
+                break
+        if a:
+            yield num
+        num += 1
+
+generator = a()
+for x in range(10):
+    print(next(generator))
