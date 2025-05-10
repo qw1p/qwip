@@ -1,0 +1,11 @@
+def palindrome(s: str) -> bool:
+    aboba = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz0123456789"
+    text = [c.lower() for c in s if c.lower() in aboba]
+    return text == text[::-1]
+
+assert palindrome("Лёша на полке клопа нашёл") == True
+assert palindrome("abAcaBa") == True
+assert palindrome("Это не палиндром") == False
+assert palindrome("") == True
+assert palindrome("Я") == True
+assert palindrome("12321") == True
