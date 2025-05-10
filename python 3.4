@@ -1,0 +1,42 @@
+class Car:
+    vehicle_type = "Автомобиль"
+    fuel_types = ["Бензиновая", "Дизель", "Электрическая", "Гибрид"]
+
+    def __init__(self, brand: str, model: str, year: int, color: str, engine_power_hp: int) -> None:
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.color = color
+        self.engine_power_hp = engine_power_hp
+        self.mileage_km = 0
+
+    def __str__(self) -> str:
+        return f"{self.brand} {self.model} ({self.year}), {self.color}, {self.engine_power_hp} ЛС"
+
+    def is_powerful(self) -> bool:
+        return self.engine_power_hp > 200
+
+    def drive(self, distance_km: int) -> None:
+        self.mileage_km += distance_km
+        print(f"Машина проехала {distance_km} км. Пробег: {self.mileage_km} km")
+
+    def repaint(self, new_color: str) -> None:
+        print(f"Перекраска из {self.color} в {new_color}")
+        self.color = new_color
+
+    def get_age(self, current_year: int) -> int:
+        return current_year - self.year
+
+
+# Создаем объекты Audi
+car1 = Car("Audi", "A7", 2021, "Серебристый", 340)
+car2 = Car("Audi", "R8", 2020, "Красный", 610)
+car3 = Car("Audi", "RS6", 2019, "Синий", 600)
+
+# Проверяем методы
+print(car3)  # Audi RS6 (2019), Серебристый, 600 ЛС
+print(car2.is_powerful())  # True (610 > 200)
+car3.drive(7777)  # Машина проехала 7777 км. Пробег: 7777 km
+car1.repaint("Розовый, но пацанский")  # Перекраска из Серебристый в Пацанский розовый
+print(car1.color)  # Розовый
+print(f"Возраст: {car3.get_age(2025)} лет")  # Возраст: 6 лет
