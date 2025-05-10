@@ -1,0 +1,9 @@
+def func(text, name):
+    with open(name, 'a', encoding='utf-8') as file:
+        file.write('\n' + text)
+
+    with open(name, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+        for i in lines[1::2]:
+            print(i.strip())
+func("Пятая строка", "example.txt")
